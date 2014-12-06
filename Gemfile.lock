@@ -1,12 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ruby-mpd (0.3.1)
-    thor (0.19.1)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
+    eventmachine (1.0.3)
+    http_parser.rb (0.6.0)
+    mpd_client (0.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  ruby-mpd
-  thor
+  em-websocket
+  mpd_client

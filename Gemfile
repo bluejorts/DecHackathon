@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'ruby-mpd'
+gem 'mpd_client'
+gem 'em-websocket'
