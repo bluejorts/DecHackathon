@@ -1,5 +1,7 @@
 require 'pocketsphinx-ruby'
 
-Pocketsphinx::LiveSpeechRecognizer.new.recognize do |speech|
-  puts speech
+configuration = Pocketsphinx::Configuration::KeywordSpotting.new('Okay computer')
+recognizer = Pocketsphinx::LiveSpeechRecognizer.new(configuration)
+recognizer.recognize do |speech|
+	puts speech
 end
