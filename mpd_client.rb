@@ -1,5 +1,6 @@
 require 'mpd_client'
 require 'em-websocket'
+require 'lyricfy'
 
 @mpd = MPDClient.new
 
@@ -11,6 +12,13 @@ def queue()
 	@mpd.playlistinfo.each do |song|
 		puts "#{song['artist']} - #{song['album']} - #{song['title']}"
 	end
+end
+
+def lyrics()
+    fetcher = Lyricfy::Fetcher.new
+    song = @mpd.currentsong
+    lyrics = fetcher.search song['artist'], song['title']
+    puts lyrics.body
 end
 
 def play()
@@ -62,6 +70,8 @@ EM.run {
 				songs.each do |song|
 					ws.send "#{song['artist']} - #{song['album']} - #{song['title']}"
 				end
+            when 'lyrics'
+                ws.send lyrics()
 			when 'play'
 				play()
 			when 'pause'
@@ -70,7 +80,10 @@ EM.run {
 				next_song()
 			when 'previous'
 				previous_song()
-			else
+            when 'current'
+                song = @mpd.currentsong
+                ws.send "#{song['artist']} - #{song['album']} - #{song['title']}"
+            else
 				ws.send 'Quit feeding me nonsense!'
 		end
     }
