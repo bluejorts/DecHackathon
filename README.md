@@ -1,9 +1,8 @@
 DecHackathon
 ============
 
-speech activated mpd server, node.js frontend
+mpd control via ruby server backend. Allows for seamless transition from phone to home.
 
-# Dependencies
-* swig > 2.0
-* https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/sphinxbase
-* https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/pocketsphinx
+Developed in conjuntion with https://github.com/GGreenwood/WeeWoo at:
+
+http://www.eventbrite.com/e/att-mobile-app-hackathon-dallas-women-in-tech-and-home-automation-tickets-10931387073?aff=attdp
